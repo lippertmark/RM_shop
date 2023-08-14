@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% endblock %}
+
+{% block title %}Principal{% endblock %}
+
+{% block body %}
+    <div class="slideshow-container">
+            <a class="mySlides fade" href="http://google.com">
+                <div class="numbertext">1 / 4</div>
+                <img src="{% static 'images/fulvio-ciccolo-BU46fEYMbsQ-unsplash.jpg' %}">
+                <div class="text"></div>
+            </a>
+            <a class="mySlides fade"  href="http://google.com">
+                <div class="numbertext">2 / 4</div>
+                <img src="{% static 'images/thisisengineering-raeng-bcqDxjddPGk-unsplash.jpg' %}">
+                <div class="text"></div>
+            </a>
+            <a class="mySlides fade" href="http://google.com">
+                <div class="numbertext">3 / 4</div>
+                <img src="{% static 'images/vedrana-filipovic-jxqTaXF5WmY-unsplash.jpg' %}">
+                <div class="text"></div>
+            </a>
+            <a class="mySlides fade" href="http://google.com">
+                <div class="numbertext">4 / 4</div>
+                <img src="{% static 'images/alex-kondratiev-H9t723yPjYI-unsplash.jpg' %}">
+                <div class="text"></div>
+            </a>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <div class="main_page__picture_grid">
+        <a href="http://google.com" class="main_page__picture_block">
+            <img src="{% static 'images/thisisengineering-raeng-bcqDxjddPGk-unsplash.jpg' %}" alt="" class="main_page__picture">
+        </a>
+        <a href="http://google.com" class="main_page__picture_block">
+            <img src="{% static 'images/fulvio-ciccolo-BU46fEYMbsQ-unsplash.jpg' %}" alt="" class="main_page__picture">
+        </a>
+        <a href="http://google.com" class="main_page__picture_block">
+            <img src="{% static 'images/vedrana-filipovic-jxqTaXF5WmY-unsplash.jpg' %}" alt="" class="main_page__picture">
+        </a>
+        <a href="http://google.com" class="main_page__picture_block">
+            <img src="{% static 'images/thisisengineering-raeng-bcqDxjddPGk-unsplash.jpg' %}" alt="" class="main_page__picture">
+        </a>
+        <a href="http://google.com" class="main_page__picture_block">
+            <img src="{% static 'images/fulvio-ciccolo-BU46fEYMbsQ-unsplash.jpg' %}" alt="" class="main_page__picture">
+        </a>
+        <a href="http://google.com" class="main_page__picture_block">
+            <img src="{% static 'images/alex-kondratiev-H9t723yPjYI-unsplash.jpg' %}" alt="" class="main_page__picture">
+        </a>
+
+    </div>
+    <div class="goods__wrapper">
+        {% for popular_product in popular_products %}
+            {% include 'includes/product.html' with product=popular_product %}
+        {% endfor %}
+    </div>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "flex";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+    {#    <script>#}
+    {#        let currentIndex = 0;#}
+    {#        const carouselItems = document.querySelectorAll('.main_page__carousel_item');#}
+    {##}
+    {#        function goToSlide(index) {#}
+    {#            if (index &lt; 0) {#}
+    {#                index = carouselItems.length - 1;#}
+    {#            } else if (index &gt;= carouselItems.length) {#}
+    {#                index = 0;#}
+    {#            }#}
+    {#            currentIndex = index;#}
+    {#            document.querySelector('.main_page__carousel_inner').style.transform = `translateX(-${currentIndex * 100}%)`;#}
+    {#        }#}
+    {##}
+    {#        function goToNextSlide() {#}
+    {#            goToSlide(currentIndex + 1);#}
+    {#        }#}
+    {##}
+    {#        function goToPrevSlide() {#}
+    {#            goToSlide(currentIndex - 1);#}
+    {#        }#}
+    {##}
+    {#        setInterval(goToNextSlide, 1000);#}
+    {#    </script>#}
+{% endblock %}

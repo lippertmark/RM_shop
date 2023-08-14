@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="goods__item">
+    <div class="goods__image_wrapper">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="goods__image">
+    </div>
+    <h3 class="goods__name">{{ product.name }}</h3>
+    <p class="goods__text">Categoría: {{ product.category }}</p>
+    {% if product.old_price == None %}
+        <div class="goods__price_block">
+            <p class="goods__price">{{ product.price }}MXN</p>
+        </div>
+    {% else %}
+        <div class="goods__price_block">
+            <p class="goods__price goods__old_price">
+                <del>{{ product.old_price }}MXN</del>
+            </p>
+            <p class="goods__price goods__new_price">{{ product.price }}MXN</p>
+            <p class="goods__sale_percent">{{ product.get_sale_percent }}%</p>
+        </div>
+    {% endif %}
+    <p class="goods__description">{{ product.description }}</p>
+    <div class="goods__review">
+        <img src="{% static 'images/bxs-star.png' %}" alt="" class="goods__star_img">
+        <p>{{ product.rating }}</p>
+        <img src="{% static 'images/comment-icon.svg' %}" alt="comments" class="goods__comment_img">
+        <p class"goods__amount_of_comments">{{ product.get_random_amount_of_comments }}</p>
+    </div>
+
+
+    <a class="goods__button" href="{{ product.link }}"><h5>Buy</h5></a>
+</div>

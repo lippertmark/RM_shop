@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="delivery_information">
+    <p class="delivery_information__text"><a href="{% url 'delivery' %}" class="delivery_link"><u>Haga clic aquí</u></a> para conocer los detalles de entrega y pago: ¡cada día estamos más cerca de usted!
+</p>
+</div>
+<a class="header__logo" href="{% url 'main_page' %}">
+    <img src="{% static 'images/top_logo.png' %}" alt="logo">
+</a>
+<header>
+    <a href="{% url 'menu' %}" class="menu__button">
+        <img src="{% static 'images/bx-menu-white.svg' %}" alt="menu">
+    </a>
+
+    <button class="cart__button">
+        <img src="{% static 'images/bxs-cart-alt-white.svg' %}" alt="cart">
+    </button>
+</header>
+{% block body %}
+
+{% endblock %}
+<footer>
+    <div class="footer__col">
+        <div class="footer__logo">
+            <img src="{% static 'images/logo_shop.png' %}" alt="">
+        </div>
+        <p>Av. de las Américas #1254 - Int. UP6, P2</p>
+        <p>Col. Country Club</p>
+        <p>Guadalajara, Jalisco</p>
+        <p>C.P. 44610</p>
+        <p style="margin-top: 10px;"><b>Teléfonos Contact Center:</b></p>
+        <p>(33) 3818 1818</p>
+        <p>(83)FARMACIA (32762242)</p>
+
+        </p>
+    </div>
+    <div class="footer__col">
+        <div class="footer__menu_item">
+            <a href="{% url 'main_page' %}" class="footer__menu_link"><h3>Principal</h3></a>
+        </div>
+        <div class="footer__menu_item">
+            <a href="{% url 'all_products' %}" class="footer__menu_link"><h3>Mercancías</h3></a>
+        </div>
+        <div class="footer__menu_item">
+            <a href="{% url 'delivery' %}" class="footer__menu_link"><h3>Entrega</h3></a>
+        </div>
+        <div class="footer__menu_item footer__menu_item_last">
+            <a href="{% url 'sale' %}" class="footer__menu_link"><h3>Venta</h3></a>
+        </div>
+    </div>
+    <div class="footer__col">
+        <p>
+            Los precios y promociones mostrados en esta pagina online
+            son exclusivos y estos pueden diferir de los precios y
+            promociones de sucursal.
+            Las imágenes mostradas son exclusivamente para uso
+        </p>
+        <p style="margin-top: 10px">
+            © Farmacia Guadalajara es una empresa de Corporativo
+            <br>Fragua, S.A.B de C.V. Todos los derechos reservados
+        </p>
+    </div>
+</footer>
+</body>
+</html>

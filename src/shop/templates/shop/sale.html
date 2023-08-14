@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Venta{% endblock %}
+
+{% block body %}
+
+    <div class="goods__wrapper">
+        {% for product in sale_products %}
+            {% include 'includes/product.html' with product=product %}
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+{% load static %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Menú{% endblock %}
+
+{% block body %}
+    <div class="menu__wrapper">
+        <div class="menu__item">
+            <a href="{% url 'main_page' %}" class="menu__link"><h3>Principal</h3></a>
+        </div>
+        <div class="menu__item">
+            <a onclick="ShowItems()" class="menu__link"><h3>Mercancías</h3></a>
+        </div>
+        <div class="menu__hidden_part">
+            <div class="menu__item">
+                <a href="{% url 'all_products'%}" class="menu__link"><h3>
+                    Todos los productos</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Cosméticos antiedad" %}" class="menu__link"><h3>
+                    Cosméticos antiedad</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Dieta - Pérdida de peso" %}" class="menu__link"><h3>
+                    Dieta - Pérdida de peso</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Diabetes" %}" class="menu__link"><h3>
+                    Diabetes</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Articulaciones" %}" class="menu__link"><h3>
+                    Articulaciones</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Prostatitis" %}" class="menu__link"><h3>
+                    Prostatitis</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Cistitis" %}" class="menu__link"><h3>
+                    Cistitis</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Visión" %}" class="menu__link"><h3>
+                    Visión</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Aumento" %}" class="menu__link"><h3>
+                    Aumento</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Parásitos" %}" class="menu__link"><h3>
+                    Parásitos</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Hipertensión" %}" class="menu__link"><h3>
+                    Hipertensión</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Cabello" %}" class="menu__link"><h3>
+                    Cabello</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Dejar de fumar" %}" class="menu__link"><h3>
+                    Dejar de fumar</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Orina femenina" %}" class="menu__link"><h3>
+                    Orina femenina</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Varices" %}" class="menu__link"><h3>
+                    Varices</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Audición" %}" class="menu__link"><h3>
+                    Audición</h3></a>
+            </div>
+            <div class="menu__item">
+                <a href="{% url 'all_products_category' category="Sombrero Blanco" %}" class="menu__link"><h3>
+                    Sombrero Blanco</h3></a>
+            </div>
+        </div>
+
+        <div class="menu__item ">
+            <a href="{% url 'delivery' %}" class="menu__link"><h3>Entrega</h3></a>
+        </div>
+        <div class="menu__item menu__item_last">
+            <a href="{% url 'sale' %}" class="menu__link"><h3>Venta</h3></a>
+        </div>
+    </div>
+    <script>
+        function ShowItems(){
+            const element = document.querySelector('.menu__hidden_part');
+            element.style.display = 'block';
+        }
+    </script>
+{% endblock %}
